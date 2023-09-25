@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
+
+import emailjs from "@emailjs/browser";
 
 import { Circles, Bulb } from "../../components";
 
@@ -9,6 +11,25 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../../scripts/variants";
 
 const Contact = () => {
+  const form = useRef();
+
+  const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
+      (result) => {
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+  };
+
   return (
     <div className="h-full">
       <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
@@ -22,6 +43,8 @@ const Contact = () => {
             Let's <span className="text-accent">connect!</span>
           </motion.h2>
           <motion.form
+            ref={form}
+            onSubmit={sendEmail}
             variants={fadeIn("up", 0.4)}
             initial="hidden"
             animate="show"
@@ -31,16 +54,18 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="name"
-                name="name"
+                name="user_name"
                 id="name"
                 className="input"
+                required
               />
               <input
                 type="email"
                 placeholder="email"
-                name="email"
+                name="user_email"
                 id="email"
                 className="input"
+                required
               />
             </div>
             <input
@@ -49,14 +74,19 @@ const Contact = () => {
               name="subject"
               id="subject"
               className="input"
+              required
             />
             <textarea
               name="message"
               id="message"
               placeholder="message"
               className="textarea"
+              required
             ></textarea>
-            <button className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group">
+            <button
+              type="submit"
+              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
+            >
               <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
                 Send
               </span>
@@ -65,8 +95,8 @@ const Contact = () => {
           </motion.form>
         </div>
       </div>
-      <Circles/>
-      <Bulb/>
+      <Circles />
+      <Bulb />
     </div>
   );
 };
