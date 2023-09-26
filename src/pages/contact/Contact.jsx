@@ -41,7 +41,12 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm(serviceID, templateID, form.current, "6sJS5EkRfYOIF8Wsg")
+      .sendForm(
+        "service_kjq49sa",
+        "template_c1zlfan",
+        form.current,
+        "6sJS5EkRfYOIF8Wsg"
+      )
       .then(
         (result) => {
           toast.success("Message Sent Successfully!");
