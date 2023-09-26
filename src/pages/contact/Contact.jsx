@@ -40,16 +40,18 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
-      (result) => {
-        toast.success("Message Sent Successfully!");
-        // console.log(result.text);
-      },
-      (error) => {
-        toast.error("Message Not Sent!");
-        // console.log(error.text);
-      }
-    );
+    emailjs
+      .sendForm(serviceID, templateID, form.current, "6sJS5EkRfYOIF8Wsg")
+      .then(
+        (result) => {
+          toast.success("Message Sent Successfully!");
+          // console.log(result.text);
+        },
+        (error) => {
+          toast.error("Message Not Sent!");
+          // console.log(error.text);
+        }
+      );
     e.target.reset();
   };
 
