@@ -31,8 +31,6 @@
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
   color: #fff;
-
-
 }
 
 @layer base {
@@ -66,15 +64,23 @@
   }
 
   .input {
-    @apply w-full h-[52px] rounded-lg pl-6 capitalize;
+    @apply w-full h-[52px] rounded-lg pl-6;
+  }
+
+  .input[type="text"] {
+    @apply capitalize;
   }
 
   .input,
   .textarea {
-    @apply bg-transparent outline-none focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
+    @apply bg-transparent outline-none focus:ring-1 focus:ring-purple-800 border border-white/20 placeholder:text-white/30 placeholder:font-light;
   }
 
   .textarea {
     @apply w-full h-[180px] p-6 capitalize rounded-lg resize-none;
+  }
+
+  .error {
+    @apply absolute text-right text-sm text-accent right-0;
   }
 }
