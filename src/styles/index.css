@@ -33,6 +33,17 @@
   color: #fff;
 }
 
+@media (max-width: 640px) {
+  :root {
+    --swiper-navigation-size: 24px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: var(--swiper-navigation-top-offset, 40%);
+  }
+}
+
 @layer base {
   body {
     @apply bg-secondary overflow-hidden leading-relaxed;

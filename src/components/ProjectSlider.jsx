@@ -19,10 +19,11 @@ const projectSlides = {
           link: "https://aryakarthi.github.io/hoobank/",
         },
         {
-          title: "Presento",
-          img: "/Presento.jpg",
-          link: "https://aryakarthi.github.io/presento/",
+          title: "Nike",
+          img: "/Nike.jpg",
+          link: "https://aryakarthi.github.io/nike_clone/",
         },
+
         {
           title: "Restaurantly",
           img: "/Restaurantly.jpg",
@@ -38,6 +39,11 @@ const projectSlides = {
     {
       projects: [
         {
+          title: "Presento",
+          img: "/Presento.jpg",
+          link: "https://aryakarthi.github.io/presento/",
+        },
+        {
           title: "Flexor",
           img: "/Flexor.jpg",
           link: "https://aryakarthi.github.io/flexor/",
@@ -47,11 +53,6 @@ const projectSlides = {
           img: "/Todos.jpg",
           link: "https://aryakarthi.github.io/todoApp/",
         },
-        // {
-        //   title: "",
-        //   img: "",
-        //   link: "",
-        // },
         // {
         //   title: "",
         //   img: "",
