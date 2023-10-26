@@ -34,9 +34,14 @@ const Home = () => {
             Transforming Ideas Into{" "}
             <span className="text-accent font-semibold"> Digital Reality.</span>
           </motion.p>
-          <div className="flex justify-center xl:hidden relative">
+          <motion.div
+            variants={fadeIn("down", 0.6)}
+            initial="hidden"
+            animate="show"
+            className="flex justify-center xl:hidden relative z-10"
+          >
             <ProjectsBtn />
-          </div>
+          </motion.div>
           <motion.div
             variants={fadeIn("down", 0.6)}
             initial="hidden"
