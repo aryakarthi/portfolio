@@ -122,7 +122,7 @@ const About = () => {
             in Pixel Perfect.
           </motion.h2>
           <motion.p
-            className="max-w-[500px] mx-auto xl:mx-0 mb-6 px-2 xl:px-0"
+            className="hidden md:block max-w-[500px] mx-auto xl:mx-0 mb-6 px-2 xl:px-0"
             variants={fadeIn("right", 0.4)}
             initial="hidden"
             animate="show"
@@ -195,7 +195,7 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-      <Bulb/>
+      <Bulb />
     </div>
   );
 };
