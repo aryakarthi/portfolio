@@ -35,6 +35,7 @@ import {
 } from "react-icons/si";
 
 import { TbBrandVscode } from "react-icons/tb";
+import { Tooltip } from "../../components";
 
 const aboutData = [
   {
@@ -43,27 +44,39 @@ const aboutData = [
       {
         title: "Frontend",
         icons: [
-          <FaHtml5 />,
-          <FaCss3 />,
-          <FaBootstrap />,
-          <FaSass />,
-          <SiMui />,
-          <SiTailwindcss />,
-          <FaJs />,
-          <FaReact />,
+          { icon: <FaHtml5 />, iconTitle: "HTML" },
+          { icon: <FaCss3 />, iconTitle: "CSS" },
+          { icon: <FaBootstrap />, iconTitle: "Bootstrap" },
+          { icon: <FaSass />, iconTitle: "Sass" },
+          { icon: <SiMui />, iconTitle: "MUI" },
+          { icon: <SiTailwindcss />, iconTitle: "Tailwind" },
+          { icon: <FaJs />, iconTitle: "Javascript" },
+          { icon: <FaReact />, iconTitle: "React" },
         ],
       },
       {
         title: "Backend (Basics)",
-        icons: [<FaPhp />, <FaNodeJs />, <SiExpress />],
+        icons: [
+          { icon: <FaPhp />, iconTitle: "PHP" },
+          { icon: <FaNodeJs />, iconTitle: "NodeJS" },
+          { icon: <SiExpress />, iconTitle: "ExpressJS" },
+        ],
       },
       {
         title: "Database (Basics)",
-        icons: [<SiMysql />, <SiMongodb />],
+        icons: [
+          { icon: <SiMysql />, iconTitle: "MySQL" },
+          { icon: <SiMongodb />, iconTitle: "MongoDB" },
+        ],
       },
       {
         title: "Tools",
-        icons: [<FaGitAlt />, <FaGithub />, <FaNpm />, <TbBrandVscode />],
+        icons: [
+          { icon: <FaGitAlt />, iconTitle: "Git" },
+          { icon: <FaGithub />, iconTitle: "GitHub" },
+          { icon: <FaNpm />, iconTitle: "NPM" },
+          { icon: <TbBrandVscode />, iconTitle: "VSCode" },
+        ],
       },
     ],
   },
@@ -110,7 +123,7 @@ const About = () => {
     <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
       <Circles />
       <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
-        <div className="flex-1 flex flex-col justify-center">
+        <div className="flex flex-1 flex-col justify-center">
           <motion.h2
             className="h3"
             variants={fadeIn("right", 0.2)}
@@ -147,7 +160,7 @@ const About = () => {
           </motion.div>
         </div>
         <motion.div
-          className="flex flex-col w-full xl:max-w-[48%]"
+          className="flex flex-1 flex-col w-full xl:max-w-[48%]"
           // h-[480px]
           variants={fadeIn("left", 0.4)}
           initial="hidden"
@@ -177,18 +190,26 @@ const About = () => {
                   key={i}
                   className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/80"
                 >
-                  <div className="font-light mb-2 md:mb-0">{v.title}</div>
-                  <div className="hidden md:flex">-</div>
-                  <div>{v.stage}</div>
-                  <div className="flex gap-x-4">
-                    {v.icons?.map((icon, iconIndex) => {
-                      return (
-                        <div key={iconIndex} className="text-2xl text-white">
-                          {icon}
-                        </div>
-                      );
-                    })}
+                  <div className="xl:flex-1 font-light mb-2 md:mb-0">
+                    {v.title}
                   </div>
+                  <div className="hidden md:flex">-</div>
+                  {v.stage && <div className="xl:flex-1">{v.stage}</div>}
+                  {v.icons && (
+                    <div className="flex gap-x-4">
+                      {v.icons?.map((iconItem, iconIndex) => {
+                        return (
+                          <div
+                            key={iconIndex}
+                            className="text-2xl text-white relative group hover:text-accent cursor-pointer"
+                          >
+                            <Tooltip iconTitle={iconItem.iconTitle} />
+                            {iconItem.icon}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               );
             })}

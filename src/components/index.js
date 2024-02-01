@@ -10,6 +10,8 @@ import Socials from "./Socials";
 import TopLeftImg from "./TopLeftImg";
 import Transition from "./Transition";
 import ProjectSlider from "./ProjectSlider";
+import SingleSlide from "./SingleSlide";
+import Tooltip from "./Tooltip";
 
 export {
   Avatar,
@@ -24,4 +26,6 @@ export {
   TopLeftImg,
   Transition,
   ProjectSlider,
+  SingleSlide,
+  Tooltip,
 };

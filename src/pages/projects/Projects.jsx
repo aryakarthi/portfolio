@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { ProjectSlider, Bulb, Circles } from "../../components";
 
@@ -6,6 +6,20 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../../scripts/variants";
 
 const Projects = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+    };
+  }, []);
+
   return (
     <div className="h-full py-36 flex items-center">
       <Circles />
@@ -36,7 +50,7 @@ const Projects = () => {
             initial="hidden"
             animate="show"
           >
-            <ProjectSlider />
+            <ProjectSlider windowWidth={windowWidth} />
           </motion.div>
         </div>
       </div>

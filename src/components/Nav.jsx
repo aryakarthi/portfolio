@@ -4,9 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   HiHome,
   HiUser,
-  HiViewColumns,
   HiRectangleGroup,
-  HiChatBubbleBottomCenterText,
   HiEnvelope,
 } from "react-icons/hi2";
 
@@ -36,13 +34,8 @@ const Nav = () => {
                 link.path === location.pathname && "text-accent"
               } relative flex items-center group hover:text-accent`}
             >
-              <span className="absolute pr-14 right-0 hidden xl:group-hover:flex">
-                <span className="bg-white relative flex text-primary items-center p-[8px] rounded-[3px]">
-                  <span className="text-[12px] leading-none font-semibold capitalize">
-                    {link.name}
-                  </span>
-                  <span className="border-solid border-l-white border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute right-0"></span>
-                </span>
+              <span className="absolute right-14 hidden xl:group-hover:flex bg-white text-primary p-2 rounded-[4px] text-[12px] leading-none font-semibold capitalize">
+                {link.name}
               </span>
 
               <span>{link.icon}</span>
