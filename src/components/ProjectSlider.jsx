@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import { SingleSlide } from "../components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -21,12 +20,16 @@ const ProjectSlider = ({ windowWidth }) => {
   return (
     <Swiper
       spaceBetween={10}
-      navigation={true}
+      navigation={false}
       loop={true}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
       pagination={{
         clickable: true,
       }}
-      modules={[Pagination, Navigation]}
+      modules={[Pagination, Navigation, Autoplay]}
       className="h-[280px] sm:h-[480px]"
     >
       {windowWidth >= 768 ? (
@@ -35,8 +38,8 @@ const ProjectSlider = ({ windowWidth }) => {
             return (
               <SwiperSlide key={index}>
                 <div className="grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
-                  {slide.projects.map((image, index) => {
-                    return <SingleSlide image={image} index={index} />;
+                  {slide.projects.map((project) => {
+                    return <SingleSlide project={project} />;
                   })}
                 </div>
               </SwiperSlide>
@@ -45,10 +48,10 @@ const ProjectSlider = ({ windowWidth }) => {
         </>
       ) : (
         <>
-          {projectData.map((image, index) => {
+          {projectData.map((project, index) => {
             return (
               <SwiperSlide key={index}>
-                <SingleSlide image={image} index={index} />
+                <SingleSlide project={project} />
               </SwiperSlide>
             );
           })}
