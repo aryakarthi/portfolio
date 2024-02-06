@@ -10,6 +10,8 @@ import { fadeIn } from "../../scripts/variants";
 
 import resume from "/AriyaPerumal_M_CV.pdf?url";
 
+import resumePDF from "/RESUME_Ariya_Perumal_M.pdf?url";
+
 import { MdOutlineFileDownload } from "react-icons/md";
 
 import {
@@ -150,7 +152,7 @@ const About = () => {
             animate="show"
           >
             <Link
-              to={resume}
+              to={resumePDF}
               target="_blank"
               // download
               className="text-white w-[120px] bg-gradient-to-r inline-flex items-center gap-2 from-red-500 via-red-550 to-red-600 hover:bg-gradient-to-br focus:outline-none font-medium rounded-lg text-sm px-5 py-3"
