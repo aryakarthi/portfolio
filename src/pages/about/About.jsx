@@ -8,8 +8,6 @@ import { motion } from "framer-motion";
 
 import { fadeIn } from "../../scripts/variants";
 
-import resume from "/AriyaPerumal_M_CV.pdf?url";
-
 import resumePDF from "/RESUME_Ariya_Perumal_M.pdf?url";
 
 import { MdOutlineFileDownload } from "react-icons/md";
