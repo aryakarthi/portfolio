@@ -1,17 +1,6 @@
-import React, { useState } from "react";
-
-import { Link } from "react-router-dom";
-
-import { Bulb, Circles } from "../../components";
-
+import { useState } from "react";
 import { motion } from "framer-motion";
-
-import { fadeIn } from "../../scripts/variants";
-
-import resumePDF from "/RESUME_Ariya_Perumal_M.pdf?url";
-
 import { MdOutlineFileDownload } from "react-icons/md";
-
 import {
   FaHtml5,
   FaCss3,
@@ -25,7 +14,6 @@ import {
   FaNodeJs,
   FaGithub,
 } from "react-icons/fa";
-
 import {
   SiMui,
   SiTailwindcss,
@@ -33,9 +21,9 @@ import {
   SiMongodb,
   SiExpress,
 } from "react-icons/si";
-
 import { TbBrandVscode } from "react-icons/tb";
-import { Tooltip } from "../../components";
+import { Bulb, Circles, Tooltip } from "../../components";
+import { fadeIn } from "../../scripts/variants.js";
 
 const aboutData = [
   {
@@ -84,12 +72,17 @@ const aboutData = [
     title: "experience",
     info: [
       {
-        title: "ReactJS Developer Intern - Fabevy Technologies, Chennai.",
+        title:
+          "Fullstack / React JS Developer - Virtual India ALC Ltd, Chennai.",
+        stage: "Aug 2023 to Present",
+      },
+      {
+        title: "ReactJS Developer Trainee - Fabevy Technologies, Chennai.",
         stage: "Oct 2022 to June 2023",
       },
       {
         title: "Cloud App Developer - Yaali Bizappln Solutions, Chennai.",
-        stage: "Oct 2019 to May 2021",
+        stage: "Oct 2019 to June 2020",
       },
       {
         title: "Cloud App Developer - UX Business Solutions, Chennai.",
@@ -149,14 +142,21 @@ const About = () => {
             initial="hidden"
             animate="show"
           >
-            <Link
+            {/* <Link
               to={resumePDF}
               target="_blank"
-              // download
               className="text-white w-[120px] bg-gradient-to-r inline-flex items-center gap-2 from-red-500 via-red-550 to-red-600 hover:bg-gradient-to-br focus:outline-none font-medium rounded-lg text-sm px-5 py-3"
             >
               <span>Resume</span> <MdOutlineFileDownload />
-            </Link>
+            </Link> */}
+
+            <a
+              href="/Resume_AriyaPerumal_M.pdf"
+              target="_blank"
+              className="text-white w-[120px] bg-gradient-to-r inline-flex items-center gap-2 from-red-500 via-red-550 to-red-600 hover:bg-gradient-to-br focus:outline-none font-medium rounded-lg text-sm px-5 py-3"
+            >
+              <span>Resume</span> <MdOutlineFileDownload />
+            </a>
           </motion.div>
         </div>
         <motion.div
