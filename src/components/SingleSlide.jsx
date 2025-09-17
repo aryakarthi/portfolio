@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 import { TbExternalLink } from "react-icons/tb";
@@ -16,13 +15,15 @@ const SingleSlide = ({ project }) => {
               <div className="translate-y-full group-hover:translate-y-0 transition-all duration-300 delay-100 text-xl font-medium">
                 {project.title}
               </div>
-              <Link
-                to={project.github}
-                target="_blank"
-                className="translate-y-full group-hover:translate-y-0 transition-all duration-300 delay-150 hover:text-accent"
-              >
-                <BsGithub size={20} />
-              </Link>
+              {project.github && (
+                <Link
+                  to={project.github}
+                  target="_blank"
+                  className="translate-y-full group-hover:translate-y-0 transition-all duration-300 delay-150 hover:text-accent"
+                >
+                  <BsGithub size={20} />
+                </Link>
+              )}
               <Link
                 to={project.link}
                 target="_blank"

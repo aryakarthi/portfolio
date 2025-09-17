@@ -8,7 +8,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { projectData } from "../utils/data";
+import { projectData } from "../utils/data.js";
 
 const ProjectSlider = ({ windowWidth }) => {
   const projectSlides = [];
@@ -39,7 +39,7 @@ const ProjectSlider = ({ windowWidth }) => {
               <SwiperSlide key={index}>
                 <div className="grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
                   {slide.projects.map((project) => {
-                    return <SingleSlide project={project} />;
+                    return <SingleSlide key={project.id} project={project} />;
                   })}
                 </div>
               </SwiperSlide>
