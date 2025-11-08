@@ -73,20 +73,20 @@ const aboutData = [
     info: [
       {
         title:
-          "Fullstack / React JS Developer - Virtual India ALC Ltd, Chennai.",
-        stage: "Aug 2023 to Present",
+          "ReactJS / Fullstack Developer - Virtual India ALC Ltd, Chennai.",
+        // stage: "May 2024 to Sep 2025",
       },
       {
         title: "ReactJS Developer Trainee - Fabevy Technologies, Chennai.",
-        stage: "Oct 2022 to June 2023",
+        // stage: "Oct 2022 to June 2023",
       },
       {
         title: "Cloud App Developer - Yaali Bizappln Solutions, Chennai.",
-        stage: "Oct 2019 to June 2020",
+        // stage: "Oct 2019 to June 2020",
       },
       {
         title: "Cloud App Developer - UX Business Solutions, Chennai.",
-        stage: "Dec 2018 to Oct 2019",
+        // stage: "Dec 2018 to Oct 2019",
       },
     ],
   },
@@ -96,15 +96,15 @@ const aboutData = [
       {
         title:
           "BE CSE - S.Veerasamy Chettiar College of Engineering, Puliangudi.",
-        stage: "2012 to 2016",
+        // stage: "2012 to 2016",
       },
       {
         title: "HSC - S.M.S.S Govt Boys Higher Secondary School, Sengottai.",
-        stage: "2011 to 2012",
+        // stage: "2011 to 2012",
       },
       {
         title: "SSLC - S.M.S.S Govt Boys Higher Secondary School, Sengottai.",
-        stage: "2009 to 2010",
+        // stage: "2009 to 2010",
       },
     ],
   },
@@ -151,7 +151,8 @@ const About = () => {
             </Link> */}
 
             <a
-              href="/Resume_AriyaPerumal_M.pdf"
+              // href="/Resume_AriyaPerumal_M.pdf"
+              href="/AriyaPerumal_M_Resume.pdf"
               target="_blank"
               className="text-white w-[120px] bg-gradient-to-r inline-flex items-center gap-2 from-red-500 via-red-550 to-red-600 hover:bg-gradient-to-br focus:outline-none font-medium rounded-lg text-sm px-5 py-3"
             >
@@ -193,7 +194,7 @@ const About = () => {
                   <div className="xl:flex-1 font-light mb-2 md:mb-0">
                     {v.title}
                   </div>
-                  <div className="hidden md:flex">-</div>
+                  {v.icons && <div className="hidden md:flex">-</div>}
                   {v.stage && <div className="xl:flex-1">{v.stage}</div>}
                   {v.icons && (
                     <div className="flex gap-x-4">
