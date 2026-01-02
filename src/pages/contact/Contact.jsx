@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import { useForm } from "react-hook-form";
 
@@ -22,7 +22,6 @@ const Contact = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -40,23 +39,16 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_kjq49sa",
-        "template_c1zlfan",
-        form.current,
-        "6sJS5EkRfYOIF8Wsg"
-      )
-      .then(
-        (result) => {
-          toast.success("Message Sent Successfully!");
-          // console.log(result.text);
-        },
-        (error) => {
-          toast.error("Message Not Sent!");
-          // console.log(error.text);
-        }
-      );
+    emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
+      (result) => {
+        toast.success("Message Sent!");
+        // console.log(result);
+      },
+      (error) => {
+        toast.error("Message Not Sent!");
+        // console.log(error);
+      }
+    );
     e.target.reset();
   };
 
