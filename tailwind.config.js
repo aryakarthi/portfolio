@@ -21,7 +21,7 @@ module.exports = {
     screens: {
       sm: "640px",
       md: "768px",
-      lg: "960px",
+      lg: "1024px",
       xl: "1200px",
     },
     extend: {
@@ -44,6 +44,7 @@ module.exports = {
       fontFamily: {
         poppins: [`var(--font-poppins)`, "sans-serif"],
         sora: [`var(--font-sora)`, "sans-serif"],
+        newsreader: [`var(--font-newsreader)`, "serif"],
       },
     },
   },
